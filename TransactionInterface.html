@@ -1,0 +1,347 @@
+<html>
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Transaction</title>
+  <link rel="stylesheet" href="{{ url_for('static',filename='css/bootstrap.min.css') }}" />
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous" />
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+    crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.2.0/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="https://cdn.datatables.net/1.13.4/css/dataTables.bootstrap5.min.css" />
+  <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+  <script src="https://cdn.datatables.net/1.13.4/js/jquery.dataTables.min.js"></script>
+  <script src="https://cdn.datatables.net/1.13.4/js/dataTables.bootstrap5.min.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+
+  <link rel="icon" type="image/x-icon" href="/static/img/Logo/270.png">
+  <script>
+    $(document).ready(function () {
+      $("#Transaction").DataTable();
+    });
+  </script>
+
+
+<script>
+    $(document).ready(function () {
+      $("#transaction_detail").DataTable();
+    });
+  </script>
+
+  <base target="_parent" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&amp;display=swap" />
+  <link rel="stylesheet" href="https://mdbootstrap.com/api/snippets/static/download/MDB5-Free_6.3.1/css/mdb.min.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+
+  <style>
+    body {
+      background-color: #fbfbfb;
+    }
+
+    @media (min-width: 991.98px) {
+      main {
+        padding-left: 240px;
+      }
+    }
+
+    /* Sidebar */
+    .sidebar {
+      position: fixed;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      padding: 58px 0 0;
+      /* Height of navbar */
+      box-shadow: 0 2px 5px 0 rgb(0 0 0 / 5%), 0 2px 10px 0 rgb(0 0 0 / 5%);
+      width: 240px;
+      z-index: 600;
+    }
+
+    @media (max-width: 991.98px) {
+      .sidebar {
+        width: 100%;
+      }
+    }
+
+    .sidebar .active {
+      border-radius: 5px;
+      box-shadow: 0 2px 5px 0 rgb(0 0 0 / 16%), 0 2px 10px 0 rgb(0 0 0 / 12%);
+    }
+
+    .sidebar-sticky {
+      position: relative;
+      top: 0;
+      height: calc(100vh - 48px);
+      padding-top: 0.5rem;
+      overflow-x: hidden;
+      overflow-y: auto;
+      /* Scrollable contents if viewport is shorter than content. */
+    }
+  </style>
+  <style>
+    INPUT:-webkit-autofill,
+    SELECT:-webkit-autofill,
+    TEXTAREA:-webkit-autofill {
+      animation-name: onautofillstart;
+    }
+
+    INPUT:not(:-webkit-autofill),
+    SELECT:not(:-webkit-autofill),
+    TEXTAREA:not(:-webkit-autofill) {
+      animation-name: onautofillcancel;
+    }
+
+    @keyframes onautofillstart {}
+
+    @keyframes onautofillcancel {}
+  </style>
+</head>
+
+<body class="vsc-initialized">
+  <!--Main Navigation-->
+  <header>
+    <!-- Sidebar -->
+    <nav id="sidebarMenu" class="collapse d-lg-block sidebar collapse bg-white">
+      <div class="position-sticky">
+        <div class="list-group list-group-flush mx-3 mt-4">
+          <a href="/dashboard" class="list-group-item py-2 ripple" aria-current="true">
+            <i class="bi bi-bar-chart-fill fa-fw me-3"></i><span>Dashboard</span></a>
+
+          <a href="/sale" class="list-group-item py-2 ripple">
+            <i class="bi bi-calendar-week-fill fa-fw me-3"></i><span>Orders</span></a>
+
+          <a href="/product" class="list-group-item py-2 ripple">
+            <i class="bi bi-ticket-perforated-fill fa-fw me-3"></i><span>Product</span></a>
+            
+          <a href="/unit" class="list-group-item py-2 ripple">
+            <i class="bi bi-bag-check fa-fw me-3"></i><span>Units</span></a>
+
+            <a href="/unit-conversion" class="list-group-item py-2 ripple">
+              <i class="bi bi-bag-check fa-fw me-3"></i><span>Units Conversion</span></a>
+
+          <a href="/component" class="list-group-item py-2 ripple">
+            <i class="bi bi-box-seam fa-fw me-3"></i><span>Component</span></a>
+
+          <a href="/category" class="list-group-item py-2 ripple">
+            <i class="bi bi-grid-3x3-gap fa-fw me-3"></i><span>Category</span></a>
+
+          <a href="/stock-remeaning" class="list-group-item py-2 ripple">
+            <i class="bi bi-person-fill fa-fw me-3"></i><span>Stock Report</span></a>
+
+          <a href="/staff" class="list-group-item py-2 ripple">
+            <i class="bi bi-tv-fill fa-fw me-3"></i><span>Staff</span></a>
+
+        </div>
+      </div>
+    </nav>
+    <!-- Sidebar -->
+
+    <!-- Navbar -->
+    <nav
+    id="main-navbar"
+    class="navbar navbar-expand-lg navbar-light bg-white fixed-top"
+  >
+    <!-- Container wrapper -->
+    <div class="container-fluid">
+      <!-- Toggle button -->
+      <button
+        class="navbar-toggler collapsed"
+        type="button"
+        data-mdb-toggle="collapse"
+        data-mdb-target="#sidebarMenu"
+        aria-controls="sidebarMenu"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <i class="fas fa-bars"></i>
+      </button>
+
+      <!-- Brand -->
+      <a class="navbar-brand"  href="/staff/dashboard/today">
+        <img
+        src="/static/img/Logo/270.png"
+          height="25"
+          alt=""
+          loading="lazy"
+        />
+      </a>
+
+      <!--ส่วนของการ long out edit profile-->
+      <ul class="navbar-nav ml-auto">
+        <!-- Avatar -->
+        <li class="nav-item dropdown ml-auto">
+          <a
+            class="nav-link dropdown-toggle hidden-arrow d-flex align-items-center"
+            href="#"
+            id="navbarDropdownMenuLink"
+            role="button"
+            data-mdb-toggle="dropdown"
+            aria-expanded="false"
+          >
+            <img
+              src="https://mdbootstrap.com/img/Photos/Avatars/img (31).jpg"
+              class="rounded-circle"
+              height="22"
+              alt=""
+              loading="lazy"
+            />
+          </a>
+          <ul
+            class="dropdown-menu dropdown-menu-end"
+            aria-labelledby="navbarDropdownMenuLink"
+          >
+          <li><a class="dropdown-item" >{{Username}}</a></li>
+          <li><a class="dropdown-item" >{{Position}} </a></li>
+          <li><a class="dropdown-item" href="{{url_for('profile')}}">Profile</a></li>
+          <li><a class="dropdown-item" href="{{url_for('logout')}}">Logout</a></li>
+          </ul>
+        </li>
+      </ul>
+      <!--จบส่วนของการ long out edit profile-->
+
+    </div>
+    <!-- Container wrapper -->
+  </nav>
+  <!-- Navbar -->
+  </header>
+  <!--Main Navigation-->
+
+ 
+    <!-- Main layout -->
+    <main style="margin-top: 58px">
+        <div class="container-fluid">
+            <br>
+            <h2>Transaction History <a href="/sale/add_sale" class="btn btn-primary">Add Transaction</a></h2>
+
+            <table id="Transaction" class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>User</th>
+                        <th>Total Price</th>
+                        <th>Time Stamp</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for row in transaction_history %}
+                    <tr>
+                        <td>{{ row.0 }}</td>
+                        <td>{{ row.1 }}</td>
+                        <td>{{ row.2 }}</td>
+                        <td>{{ row.3 }}</td>
+                        <td>
+                            <a href="#" class="btn btn-warning btn-sm" data-bs-toggle="modal" data-bs-target="#modaledit{{ row.0 }}">Detail</a>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+                <tfoot>
+                    <tr>
+                        <th>ID</th>
+                        <th>User</th>
+                        <th>Total Price</th>
+                        <th>Time Stamp</th>
+                        <th>Action</th>
+                    </tr>
+                </tfoot>
+            </table>
+        </div>
+    </main>
+    <!-- Main layout -->
+
+    <!-- Modal for Transaction Detail -->
+    {% for row in transaction_history %}
+    <div class="modal fade" id="modaledit{{ row.0 }}" tabindex="-1" aria-labelledby="modal{{ row.0 }}" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="modal{{ row.0 }}">User: {{row.1}}  &nbsp;&nbsp; Total Price: {{row.2}}  &nbsp;&nbsp; {{row.3}}</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                  <form action="/sale/update_sale" method="POST">
+                    <table id="transaction_detail_{{ row.0 }}" class="table table-striped">
+                        <thead>
+                            <tr>
+                                
+                                <th>Item Name</th>
+                                <th>Per Price</th>
+                                <th>Amount</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for transaction_detail_row in transaction_detail %}
+                            {% if transaction_detail_row.1 == row.0 %}
+                            <tr>
+                                
+                                <input type="hidden" name="id[]" value="{{transaction_detail_row.0}}">
+                                
+                                <td>
+                                    <SELECT class="form-select" name="Item[]"  style="width: 200px;">
+                                        <OPTION value="">{{transaction_detail_row.2}} </OPTION>
+                                        {% for Item in item_list %}
+                                            <OPTION value="{{Item.0}}">{{Item.1}}</OPTION>
+                                        {% endfor %}
+                                    </SELECT>
+                                </td>
+
+                                <td>  <input type="number" class="form-control"  value="{{ transaction_detail_row.3 }}" readonly>
+
+
+                                <td>
+                                    <input type="number" class="form-control" name="Amount[]" value="{{ transaction_detail_row.4 }}">
+                                </td>
+                            </tr>
+                            {% endif %}
+                            {% endfor %}
+                        </tbody>
+                        
+                        
+                    </table>
+
+                    <div class="modal-footer">
+                      <button class="btn btn-primary"   type="submit">อัพเดท</button>
+                      <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    </div>
+                  </form>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+    <!-- Modal for Transaction Detail -->
+
+    <script>
+      function checkTheme() {
+        const isDarkTheme = window.matchMedia('(prefers-color-scheme: dark)').matches;
+        const logo = document.getElementById('logo');
+    
+        if (isDarkTheme) {
+          logo.href = 'logo3.png';
+        } else {
+          logo.href = 'logo2.png';
+        }
+      }
+    
+      // เรียกฟังก์ชันเมื่อหน้าเว็บโหลดเสร็จ
+      window.addEventListener('load', checkTheme);
+    
+      // เรียกฟังก์ชันอีกครั้งเมื่อค่า 'prefers-color-scheme' มีการเปลี่ยนแปลง
+      window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', checkTheme);
+    </script>
+    
+  <script type="text/javascript"
+    src="https://mdbootstrap.com/api/snippets/static/download/MDB5-Free_6.3.1/js/mdb.min.js"></script>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/chart.js@2.9.4/dist/Chart.min.js"></script>
+  
+</body>
+
+</html>
